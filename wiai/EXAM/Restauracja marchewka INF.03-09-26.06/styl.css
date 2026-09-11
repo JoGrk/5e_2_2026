@@ -1,3 +1,62 @@
-body{
+*{
     font-style: Verdana;
+    border-radius: 5px;
+}
+body{
+    background-color: #D1E2C4;
+}
+header{
+    display: flex;
+}
+main{
+    display: flex;
+}
+.leftHead{
+    width: 80%;
+    background-color: #778A35;
+    height: 200px;
+}
+.rightHead{
+    width: 20%;
+    background-color: #778A35;
+    height: 200px;
+}
+h1{
+    font-size: 50px;
+    padding-left: 200px;
+}
+h3{
+    font-size: 30px;
+    font-style: italic;
+    padding-left: 200px;
+}
+.leftMain{
+    background-color: #EBEBE8;
+    width: 25%;
+}
+.rightMain{
+    width: 75%;
+}
+.food{
+    background-color: #778A35;
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+}
+.food img{
+    margin: 15px;
+    height: 150px;
+}
+.food:hover{
+    outline: solid 2px white;
+}
+footer{
+    background-color: #778A35;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: right;
+}
+button{
+    background-color: #778A35;
+    padding: 5px;
 }
