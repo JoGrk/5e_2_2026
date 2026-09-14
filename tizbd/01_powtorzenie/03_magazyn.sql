@@ -1,22 +1,37 @@
+USE 5e_2_produkty;
+
 -- Utwórz tabele:
-
 -- Magazyny
-
- 
-
 -- Kod  całkowity, klucz podstawowy
 -- Lokalizacja tekst, nie puste
 -- Pojemność całkowita, nie puste
+
+CREATE TABLE Magazyn(
+    kod int PRIMARY KEY,
+    lokalizacja varchar(255) not null,
+    pojemnosc int not null
+);
+
+
+
 -- Kontenery
-
- 
-
 -- Kod tekst o stałej długości 4 znaków, klucz podstawowy,
 -- Zawartosc tekst
 -- Wartosc rzeczywista, dwa miejsca po przecinku, cztery przed
 -- Magazyn całkowita, nie pusta, pole klucza obcego (odwołuje się do pola kod w tabeli magazyny)
  
+CREATE TABLE Kontener(
+    kod char(4) PRIMARY KEY,
+    zawartosc varchar(255),
+    wartosc dec(6,2),
+    magazyn int not null ,
+    FOREIGN KEY (magazyn) REFERENCES Magazyn (kod)
+);
 
+
+ALTER TABLE Magazyn RENAME TO Magazyny;
+
+ALTER TABLE Kontener RENAME TO Kontenery;
  
 
 -- Dodaj dane
@@ -49,31 +64,64 @@
 
 -- 1. Wyświetl wszystkie dane o wszystkich magazynach (zrzut)
 
+SELECT * FROM magazyny 
+
 -- 2. Wyświetl wszystkie kontenery o wartości większej niż $150.  (zrzut)
  
+SELECT * FROM kontenery
+WHERE wartosc > 150
+
 -- 3. Co jest przechowywane w kontenerach? Wyświetl zawartość tak, aby dane się nie powtarzały.   (zrzut)
- 
+ SELECT DISTINCT zawartosc
+ FRom kontenery;
 
 -- 4. Wyświetl średnią wartość wszystkich kontenerów.   (zrzut)
+SELECT ROUND(AVG(wartosc))
+FROM kontenery;
 
 
 -- 5. Wyświetl kody magazynów wraz ze średnią wartością zawartych w nich kontenerów.  (zrzut)
+SELECT magazyn, ROUND(AVG(wartosc))
+FROM kontenery
+GROUP BY magazyn;
 
 -- 6. Wyświetl kody magazynów wraz ze średnią wartością zawartych w nich kontenerów, ale ogranicz się do tych, w których średnia wartość kontenerów jest większa niż 150.  (zrzut)
 
+SELECT magazyn, ROUND(AVG(wartosc)) AS srednia
+FROM kontenery
+GROUP BY magazyn
+HAVING srednia > 150;
+
 -- 7. Wyświetl kod każdego kontenera, wraz z miastem, gdzie jest zlokalizowany (czyli lokalizacją magazynu)  (zrzut)
 
+SELECT kontenery.kod,  magazyny.lokalizacja
+FROM Kontenery
+    INNER JOIN magazyny ON magazyny.kod = kontenery.magazyn;
+
 -- 8. Wyświetl  kody magazynów wraz z liczbą kontenerów w każdym z tych magazynów.  (zrzut)
+
+SELECT COUNT(kod), magazyn
+FROM kontenery
+GROUP BY magazyn;
 
 -- 9. Rozwiń poprzednie zapytanie tak, aby w zestawieniu były wymienione również magazyny, w których nie ma kontenerów (powinna być wyświetlona liczba zero, a nie magazyn pominięty w tym zestawieniu)  (zrzut)
 
 -- Wskazówka: wybierz kod magazynu z tabeli magazyny oraz policz kod z tabeli Kontenery; dane wybieraj z dwóch tabel połączonych połączeniem rozszerzającym (LEFT JOIN lub RIGHT JOIN), z rozszerzanej strony powinna być tabela Magazyny (wybieramy wszystkie magazyny, także te, w których nie ma kontenerów); grupowanie według kodu magazynu
 
- 
-
+SELECT magazyny.kod, COUNT(kontenery.kod)
+FROM magazyny
+    LEFT JOIN kontenery ON kontenery.magazyn = magazyny.kod
+GROUP BY magazyny.kod;
  
 
 -- 10.  Wyświetl kody wszystkich magazynów, które są przeładowane (magazyn jest przeładowany, jeśli liczba zawartych w nim kontenerów jest większa niż jego pojemność)  (zrzut)
+
+SELECT magazyny.kod
+FROM Magazyny
+WHERE pojemnosc < (SELECT COUNT(kod) 
+                    FROM KONTENERY
+                    WHERE magazyn =magazyny.kod  )
+
 
  
 
@@ -84,11 +132,18 @@
 
 -- 11. Wyświetl kody wszystkich kontenerów zlokalizowanych w Chicago wraz z lokalizacją i pojemnością magazynów . Uwzględnij w zestawieniu także te magazyny z Chicago, w których nie ma aktualnie kontenerów  (zrzut)
 
-   
+SELECT kontenery.kod, lokalizacja, pojemnosc
+FROM kontenery
+    RIGHT JOIN magazyny ON kontenery.magazyn=magazyny.kod
+WHERE lokalizacja="Chicago";
 
 -- lub zastosuj podzapytanie (wyświetl kody kontenerów, dla których kod magazynu (magazyn) jest na liście (IN) kodów magazynów zlokalizowanych w Chicago. 
 
 -- 12. Utwórz nowy magazyn w Nowym Yorku z pojemnością 3 kontenerów.   (zrzut)
+INSERT INTO Magazyny
+(kod, lokalizacja, pojemnosc)
+VALUES
+(67, 'New York', 3);
 
 -- 13. Utwórz nowy kontener, z kodem "H5RT",  zawierającym "Papers" z wartością $200 i zlokalizowany w magazynie o kodzie 2.  (zrzut)
 
