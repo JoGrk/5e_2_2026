@@ -1,0 +1,60 @@
+body{
+    font-family: tahoma;
+}
+
+header{
+    display: flex;
+}
+
+main{
+    display: flex;
+}
+
+.hdrLeft, .hdrRight{
+    background-color: #003d33;
+    color: white;
+    text-align: center;
+    height: 50px;
+}
+
+.hdrLeft{
+    width: 70%;
+}
+
+.hdrRight{
+    width: 30%;
+}
+
+.left{
+    background-color: #26a69a;
+    height: 550px;
+    width: 30%;
+}
+
+.right{
+    background-color: #26a69a;
+    height: 550px;
+    width: 70%;
+}
+
+footer{
+    background-color: #003d33;
+    color: white;
+}
+
+.business-card{
+    width: 400px;
+    margin: 30px;
+    text-align: center;
+    border: solid 1px #003d33;
+}
+.business-card button{
+    background-color: #003d33;
+    color: white;
+    width: 100%;
+    height: 30px;
+    border: none;
+}
+.business-card button:hover{
+    background-color: #004c40;
+}
