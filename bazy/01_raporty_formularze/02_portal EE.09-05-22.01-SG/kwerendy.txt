@@ -14,6 +14,7 @@ FROM dane;
 
 SELECT login, rok_urodz, przyjaciol, hobby, zdjecie
 FROM uzytkownicy
-    INNER JOIN dane USING(id);
+    INNER JOIN dane USING(id)
+WHERE login = 'Justyna';
 
 -- ‒ Zapytanie 4: dodające do tabeli dane kolumnę stanowisko dowolnego typu tekstowego

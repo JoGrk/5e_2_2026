@@ -68,7 +68,9 @@ $passwd_f = $_POST['passwd']??NULL;
                                     // hasła sie zgadzają
                                     $sql="SELECT login, year(current_date) - rok_urodz as wiek,przyjaciol, hobby, zdjecie 
                                     FROM uzytkownicy
-                                     INNER JOIN dane USING(id);";
+                                     INNER JOIN dane USING(id)
+                                    WHERE login = '$login_f';
+                                     ";
                                     $result=$link->query($sql);
                                     $data=$result->fetch_assoc();
                                     // $age = date("%Y")-$data['rok_urodz'];
