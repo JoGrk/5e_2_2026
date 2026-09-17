@@ -66,17 +66,20 @@ $passwd_f = $_POST['passwd']??NULL;
                                 }
                                 else{
                                     // hasła sie zgadzają
-                                    $sql="SELECT login, rok_urodz, przyjaciol hobby, zdjecie 
+                                    $sql="SELECT login, year(current_date) - rok_urodz as wiek,przyjaciol, hobby, zdjecie 
                                     FROM uzytkownicy
-                                     INNER JOIN dane USING(id);"
+                                     INNER JOIN dane USING(id);";
                                     $result=$link->query($sql);
                                     $data=$result->fetch_assoc();
+                                    // $age = date("%Y")-$data['rok_urodz'];
+                                    // $age = (int)date("%Y") - (int)$data['rok_urodz'];
+                                    // $age = date("%Y") ;
                                     echo"
                                     <img src='{$data['zdjecie']}' alt='osoba'>
-                                    <h4>login (wiek)</h4>
+                                    <h4>{$data['login']} ({$data['wiek']})</h4>
                                     <p>hobby: {$data['hobby']}</p>
                                     <h1><img src='icon-on.png' alt=''>
-                                        {$data['przyajciol']}
+                                        {$data['przyjaciol']}
                                     </h1>
                                     <a href='dane.html'><button>Wiecej informacji</button></a>
                                     ";
