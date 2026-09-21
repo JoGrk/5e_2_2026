@@ -104,5 +104,14 @@ INSERT INTO Filmy(tytul)
 VALUES('One, Two, Three');
 
 -- 10. Ustal rating wszystkich filmów bez ratingu na  "G".
+UPDATE Filmy
+SET rating = 'G'
+WHERE rating IS NULL;
 
 -- 11. usuń kina wyświetlające filmy z ratingiem "NC-17".
+DELETE FROM Kina
+WHERE Film = (
+    SELECT kod
+    FROM Filmy
+    WHERE Rating = 'NC-17'
+);
