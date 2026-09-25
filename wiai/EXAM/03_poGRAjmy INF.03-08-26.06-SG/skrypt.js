@@ -5,10 +5,15 @@ function counter(){
     if(views == null){
         views = 0
     }
-    views += 1
+    
+    views= Number(views)
+    views = views + 1
     counterE.textContent=views
     localStorage.setItem('views', views)
+
+    
 }
 counter()
-
+// localStorage.clear()
+// localStorage.setItem('views', 0)
 // zdecydowanie wymaga poprawy :)
