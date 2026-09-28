@@ -14,7 +14,7 @@ USE 5e_2_naprawy;
     pesel char(11),
     data_zatr date DEFAULT(curdate()),
     pensja dec(8,2) check(pensja>=1000)
-
+ );
  
 -- 2. Utwórz tabelę naprawa(id_naprawa, data_przyjecia, opis_usterki, zaliczka), gdzie
 -- id_naprawa – jest unikatowym, nadawanym automatycznie numerem naprawy, jest to klucz główny,
@@ -23,6 +23,12 @@ USE 5e_2_naprawy;
 -- zaliczka – nie może być mniejsza niż 100zł ani większa niż 1000zł.
  
 
+CREATE TABLE naprawa(
+    id_naprawa int auto_increment PRIMARY KEY,
+    data_przyjecia Date,
+    opis_usterki varchar(255) NOT NULL check(length(opis_usterki) > 10),
+    zaliczka int check(zaliczka>=100 AND zaliczka<=1000) 
+);
  
 -- 3. Utwórz tabelę wykonane_naprawy(id_pracownik, id_naprawa, data_naprawy, opis_naprawy, cena), gdzie
 -- id_pracownik – identyfikator pracownika wykonującego naprawę, klucz obcy powiązany z tabelą pracownik,
@@ -30,3 +36,13 @@ USE 5e_2_naprawy;
 -- data_naprawy – domyślna wartość daty naprawy to bieżąca data systemowa,
 -- opis_naprawy – niepusty opis informujący o sposobie naprawy,
 -- cena – cena naprawy.
+CREATE TABLE wykonane_naprawy(
+    id_pracownik  int,
+    FOREIGN KEY(id_pracownik) REFERENCES pracownik(id_pracownik),
+    id_naprawa int,
+    FOREIGN KEY(id_naprawa) REFERENCES naprawa(id_naprawa),
+    data_naprawy date DEFAULT(curdate()),
+    opis_naprawy text not null,
+    cena dec(6,2),
+    PRIMARY key(id_pracownik, id_naprawa)
+);
