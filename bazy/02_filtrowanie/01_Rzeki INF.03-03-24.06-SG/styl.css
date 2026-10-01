@@ -1,0 +1,66 @@
+*{
+    font-family: Georgia;
+}
+
+.hd1, .hd2{
+    background-color: navy;
+    color: white;
+    text-align: center;
+    height: 100px;
+    width: 50%;
+}
+
+header{
+    display: flex;
+}
+
+.menu{
+    background-color: navy;
+    padding: 20px;
+}
+
+.danger-level{
+    color: silver;
+    margin: 50px;
+}
+
+.danger-level:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+.left, .right{
+    background-color: azure;
+    height: 550px;
+}
+
+.left{
+    width: 70%;
+}
+
+.right{
+    width: 30%;
+}
+
+main{
+    display: flex;
+}
+
+footer{
+    background-color: navy;
+    color: white;
+}
+
+table{
+    border: solid 1px navy;
+    margin: auto;
+    width: 70%;
+}
+
+td:hover{
+    background-color: skyblue;
+}
+
+.right img{
+    width: 90%;
+}
