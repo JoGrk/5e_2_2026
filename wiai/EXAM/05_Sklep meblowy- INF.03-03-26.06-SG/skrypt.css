@@ -1,0 +1,35 @@
+*{
+    font-family: 'Century Gothic',sans-serif ;
+}
+
+body{
+    background-color: beige;
+    font-size: 140%;
+}
+
+header, footer{
+    text-align: center;
+    padding: 20px;
+}
+
+section, article{
+    width: 50%;
+    height: 600px;
+}
+
+button{
+    background-color: tan;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 150%;
+}
+
+.obraz{
+    width: 40%;
+    padding: 20px;
+    border: solid 1px tan;
+}
+
+.miniatury{
+    width: 15%;
+} 
