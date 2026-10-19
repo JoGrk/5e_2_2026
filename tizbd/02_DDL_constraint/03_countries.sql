@@ -87,6 +87,13 @@ ADD PRIMARY KEY (id_job);
 
 -- 15. Do tabeli job_history dodaj  index o nazwie  indx_job_id na kolumnie job_id column 
 
+CREATE index indx_job_id ON job_history (job_id);
+
 -- 16. Wyświetl istniejące indeksy w tabeli job_history (SHOW INDEXES FROM...)
 
+SHOW INDEXES FROM job_history;
+
 -- 17. Usuń index indx_job_id z tabeli job_history
+
+ALTER TABLE job_history
+DROP INDEX indx_job_id;
