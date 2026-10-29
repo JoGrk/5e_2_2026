@@ -1,0 +1,24 @@
+aside{
+    width: 30%;
+    height: 100vh;
+}
+
+main{
+    background-color: bisque;
+    width: 70%;
+}
+
+body{
+    display: flex;
+}
+
+.block{
+    background-color: azure;
+    border: solid 1px red;
+    box-shadow: 2px 2px 5px black;
+    height: 150px;
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+}
+
