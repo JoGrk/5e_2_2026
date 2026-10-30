@@ -19,8 +19,10 @@
         <section class="first">
             <h2>Dane Klienta</h2>
             <img src="osoba.png" alt="Klient">
+            <br>
             <label for="name">Imię</label>
             <input type="text" name="name" id="name">
+            <br>
             <label for="lastName">Nazwisko</label>
             <input type="text" name="lastName" id="lastName">
             <p><a href="wycieczki.html">Do strony głównej</a></p>
@@ -28,9 +30,9 @@
 
         <section class="second">
             <h2>Dane rezerwacji</h2>
-            <span>&laquo;</span>
+            <span id="spanLeft">&laquo;</span>
             <img src="1.jpg" alt="wycieczka">
-            <span>&raquo;</span>
+            <span id="spanRight">&raquo;</span>
             <h4>Barcelona</h4>
             <label for="people">Liczba osób:</label><br>
             <input type="number" name="people" id="people" min="1" max="4" value="2" disabled>
