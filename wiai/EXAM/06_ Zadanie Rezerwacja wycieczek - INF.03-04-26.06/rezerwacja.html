@@ -32,8 +32,25 @@
             <img src="1.jpg" alt="wycieczka">
             <span>&raquo;</span>
             <h4>Barcelona</h4>
-            <label for="people">Liczba osób:</label>
-            <input type="number" name="" id="">
+            <label for="people">Liczba osób:</label><br>
+            <input type="number" name="people" id="people" min="1" max="4" value="2" disabled>
+            <br>
+            <label for="place">Miejsce wylotu</label>
+            <select name="place" id="place" disabled>
+                <option value="">Warszawa</option>
+                <option value="">Kraków</option>
+                <option value="">Wrocław</option>
+            </select>
+            <br>
+
+            <input type="radio" name="food" id="breakfast" checked disabled>
+            <label for="breakfast">Śniadanie</label>
+            <input type="radio" name="food" id="breakfast-dinner" disabled
+            <label for="breakfast-dinner">Śniadanie i  obiadokolacje</label>
+            <input type="radio" name="food" id="all" disabled
+            <label for="all">All inclusive</label>
+
+            <button id="price">Sprawdź cenę</button>
         </section>
 
         <aside>
@@ -49,6 +66,8 @@
         </aside>
     </main>
 
-    <footer></footer>
+    <footer>
+        <p>Autor strony <em>0000000000</em></p>
+    </footer>
 </body>
 </html>
