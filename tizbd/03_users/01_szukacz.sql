@@ -72,6 +72,12 @@ GRANT DELETE ON 5e_2_egzaminy.test TO 'serwisant'@'localhost';
 -- B. Może jej użyć
 -- C. Widzi tabele w tej bazie
 -- D. Może wyświetlić zawartość tabeli Test
+SELECT * FROM test;
 -- E. Może usunąć dane (liczbę 3)
+DELETE FROM test
+WHERE id = 3;
 -- F. Może usunąć wszystkie dane;
+DELETE FROM test;
 -- 14. Jeśli użytkownik serwisant ma problemy z usuwaniem, popraw to (ale nie dawaj mu za dużo praw, a już na pewno nie wszystkie), najpierw dodaj do tabeli liczby 1,2,3
+
+GRANT SELECT ON 5e_2_egzaminy.test TO 'serwisant'@'localhost';
