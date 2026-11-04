@@ -34,10 +34,10 @@ $orders = $result -> fetch_all(1);
 <body>
     <aside>
         <ul>
-        <li>
+        <!-- <li>
             <a href='index.php?id-product= {ProductID}&name={ProductName}&price={price}'>
             {ProductID}. {ProductName} {price}</a>
-        </li>
+        </li> -->
 <?php
 
 foreach ($products as $product) {
@@ -50,7 +50,29 @@ foreach ($products as $product) {
     </aside>
 
     <main>
+
+
+    <?php
+    
+    
+    if($product_g && $price_g && $name_g){
+        echo"
+            <div class='block'>
+                <h1>$name_g</h1>
+                <h2>$price_g</h2>
+            </div>";
+        foreach($orders as $order){
+            echo"<div class='block'>
+        <h4>{$order['quantity']} {$order['orderDate']}</h4>
         
+    </div>";}
+        }
+    ?>
+    <!-- <div class='block'>
+        <h4>{['quantity']} {['orderDate']}</h4>
+        
+    </div> -->
+        ciasteczko
     </main>
 </body>
 </html>
