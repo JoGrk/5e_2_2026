@@ -1,11 +1,15 @@
 <?php
+    session_start();
     $password_f = $_POST['password']??NULL;
     if($password_f == 'admin'){
-        setcookie('rola', 'admin', time()+60*60*24);
+        $_SESSION['rola'] = 'admin';
     }
     else{
-        setcookie('rola','user',time()+60*60*24);
+        $_SESSION['rola'] = 'user';
     }
+
+
+
 ?>
 
 <!DOCTYPE html>

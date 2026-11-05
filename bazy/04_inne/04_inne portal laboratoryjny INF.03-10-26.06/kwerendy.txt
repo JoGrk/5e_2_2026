@@ -1,0 +1,9 @@
+-- Zapytanie 1: wybierające jedynie imię i nazwisko diagnosty laboratoryjnego z tabeli Diagnosta posortowane malejąco według nazwiska 
+
+--  − Zapytanie 2: zliczające liczbę zleceń pogrupowanych po datach (bez uwzględnienia godziny). Wybierane są jedynie daty i liczby zleceń 
+
+-- − Zapytanie 3: wybierające jedynie daty zleceń dla pacjenta o nazwisku Nowicki. Należy posłużyć się relacją 
+
+
+-- − Zapytanie 4: wybierające jedynie imię, nazwisko oraz pesel pacjenta z tabeli Pacjent, datę z tabeli Zlecenie, datę i plik z tabeli Wynik. Należy posłużyć się relacją i odpowiednim rodzajem złączenia. Wybierane są wszystkie zlecenia niezależenie od tego czy jest im przypisany wynik 
+
