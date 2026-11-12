@@ -50,14 +50,34 @@
             </tr>
             <!-- Zawartość tabeli generowana jest skryptem 3 -->
              <!-- SELECT imie, nazwisko, pesel, zlecenie.data as data_zlecenia, wynik.data as data_wyniku,plik -->
-             <tr>
-                <td>imie</td>
-                <td>nazwisko</td>
-                <td>pesel</td>
-                <td>data_zlecenia</td>
-                <td>data_wyniku</td>
-                <td>plik</td>
-             </tr>
+             <!-- <tr>
+                <td>{imie}</td>
+                <td>{nazwisko}</td>
+                <td>{pesel}</td>
+                <td>{data_zlecenia}</td>
+                <td>{data_wyniku}</td>
+                <td>$file</td>
+             </tr> -->
+             <!-- <a href='{plik}' target='_blank'>wynik</a> -->
+             <?php
+                foreach($datas as $data){
+                    if(empty($data['plik'])){
+                        $file ="";
+                    }
+                    else{
+                        $file ="<a href='{$data['plik']}' target='_blank'>wynik</a>";
+                    }
+
+                    echo"<tr>
+                            <td>{$data['imie']}</td>
+                            <td>{$data['nazwisko']}</td>
+                            <td>{$data['pesel']}</td>
+                            <td>{$data['data_zlecenia']}</td>
+                            <td>{$data['data_wyniku']}</td>
+                            <td>$file</td>
+                        </tr>";
+                }
+             ?>
         </table>
         </div>
     </main>

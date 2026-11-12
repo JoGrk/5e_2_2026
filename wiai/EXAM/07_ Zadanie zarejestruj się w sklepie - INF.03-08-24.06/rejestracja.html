@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep - rejestracja</title>
+    <link rel="stylesheet" href="./styl.css">
+    <script src="js.js" defer></script>
+</head>
+<body>
+    <aside>
+        <img src="obraz.png" alt="promocje">
+        <h2>sprawdz promocje</h2>
+
+        <table>
+            <tr>
+                <th>co?</th>
+                <th>ile taniej?</th>
+            </tr>
+            <tr>
+                <td>ubrania</td>
+                <td>15%</td>
+            </tr>
+            <tr>
+                <td>buty</td>
+                <td>25%</td>
+            </tr>
+        </table>
+    </aside>
+
+    <header>
+        <h1>Zarejestruj się w sklepie</h1>
+    </header>
+
+    <main>
+        <button id="client">Klient</button>
+        <button id="address">Adres</button>
+        <button id="contact">Kontakt</button>
+        <div class="first">
+            <p>Imię</p>
+            <input type="text" name="name" id="name" placeholder="Wpisz dane...">
+            <p>Nazwisko</p>
+            <input type="text" name="lastname" id="lastname">
+            <p>Data urodzenia</p>
+            <input type="date" name="date" id="date">
+        </div>
+        <div class="second">
+            <p>Ulica</p>
+            <input type="text" name="street" id="street">
+            <p>Numer</p>
+            <input type="number" name="number" id="number">
+            <p>Miasto</p>
+            <input type="text" name="city" id="city">
+        </div>
+        <div class="third">
+            <p>Numer komórkowy</p>
+            <input type="tel" name="phone" id="phone">
+            <label for="rodo">Akceptuję RODO</label>
+            <input type="checkbox" name="rodo" id="rodo">
+            <button>Zatwierdź dane</button>
+        </div>
+
+    </main>
+
+    <section class="progress">
+        <div></div>
+    </section>
+
+    <footer>
+        <h4>Rejestrację wykonał: niewiemktoktospodpalil</h4>
+    </footer>
+</body>
+</html>
