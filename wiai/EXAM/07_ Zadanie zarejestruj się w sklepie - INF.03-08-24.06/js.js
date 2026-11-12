@@ -5,6 +5,7 @@ const btn3= document.querySelector('#contact')
 const alldiv=document.querySelectorAll('main div')
 const progressDiv = document.querySelector('.progress div')
 const inputAll = document.querySelectorAll('input')
+const agreeE = document.querySelector('#agree')
 
 function showDiv(classs){
     alldiv.forEach(element => {
@@ -40,5 +41,11 @@ function progressWidth(aha){
 inputAll.forEach(input=>{
     input.addEventListener('blur', e=>{
         progressWidth(12)
+    })
+})
+
+agreeE.addEventListener('click',e=>{
+    inputAll.forEach(input=>{
+        console.log(input.value)
     })
 })
