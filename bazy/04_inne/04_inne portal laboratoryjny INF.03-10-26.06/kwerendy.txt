@@ -1,9 +1,23 @@
 -- Zapytanie 1: wybierające jedynie imię i nazwisko diagnosty laboratoryjnego z tabeli Diagnosta posortowane malejąco według nazwiska 
-
+SELECT imie , nazwisko
+FROM Diagnosta
+ORDER BY nazwisko DESC;
 --  − Zapytanie 2: zliczające liczbę zleceń pogrupowanych po datach (bez uwzględnienia godziny). Wybierane są jedynie daty i liczby zleceń 
+
+SELECT COUNT(*), data
+FROM Zlecenie
+GROUP BY data;
 
 -- − Zapytanie 3: wybierające jedynie daty zleceń dla pacjenta o nazwisku Nowicki. Należy posłużyć się relacją 
 
+SELECT data, nazwisko
+FROM zlecenie
+    INNER JOIN pacjent ON zlecenie.idPacjenta=pacjent.id
+WHERE nazwisko = 'Nowicki';
 
 -- − Zapytanie 4: wybierające jedynie imię, nazwisko oraz pesel pacjenta z tabeli Pacjent, datę z tabeli Zlecenie, datę i plik z tabeli Wynik. Należy posłużyć się relacją i odpowiednim rodzajem złączenia. Wybierane są wszystkie zlecenia niezależenie od tego czy jest im przypisany wynik 
+SELECT imie, nazwisko, pesel, zlecenie.data as data_zlecenia, wynik.data as data_wyniku,plik
+FROM pacjent
+    INNER JOIN zlecenie ON zlecenie.idPacjenta = pacjent.id
+    LEFT JOIN wynik ON wynik.idZlecenia = zlecenie.id;
 

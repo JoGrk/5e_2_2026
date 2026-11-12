@@ -1,0 +1,59 @@
+body{
+    font-family: Verdana, sans-serif;
+    background-color: #D4F1F4;
+    color: #05445E;
+}
+
+.login{
+    width: 50em;
+    margin: auto;
+    padding: 20px;
+}
+
+div{
+    margin: 40px;
+    padding: 20px;
+}
+
+footer{
+    text-align: right;
+}
+
+header{
+    margin: 40px;
+}
+
+.login, header, div{
+    background-color: #75E6DA;
+    border-radius: 5px;
+    box-shadow: 10px 5px lightblue;
+}
+
+form{
+    margin: 10px;
+}
+
+button{
+    width: 14em;
+}
+
+table{
+    margin: auto;
+    border-collapse: collapse;
+}
+
+table, td{
+    border: solid 1px #189AB4;
+}
+
+th, tr{
+    padding: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+tr:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+}
