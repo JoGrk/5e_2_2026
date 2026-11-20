@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salon rowerowy</title>
     <link rel="stylesheet" href="styl.css">
+    <script src="skrypt.js" defer></script>
 </head>
 <body>
 
@@ -30,7 +31,7 @@
             <input type="range" name="height-range" id="height-range" min="100" max="220" value="150">
             <input type="number" name="height-num" id="height-num" value="150">
             <button class="klasa_etykiety">Sprawdź</button>
-            <p>
+            <p id="result">
                 <!-- wynikiem działania skryptu 2  -->
             </p>
         </main>
@@ -69,7 +70,7 @@
                 </tr>
                 <tr>
                     <td>Aktualna data:</td>
-                    <!-- <td>skrypt3</td> -->
+                    <td id="date"></td>
                 </tr>
             </table>
         </section>

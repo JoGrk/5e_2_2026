@@ -44,6 +44,7 @@ img{
     background-color: #02220a;
     text-align: center;
     overflow: hidden;
+    color: white;
 }
 
 .klasa_etykiety:hover{
@@ -53,6 +54,25 @@ img{
 .logo1{
     font-size: 50px;
     text-transform: uppercase;
+    font-style: italic;
+}
+
+.logo2{
+    font-size: 30px;
+    text-decoration: underline;
+    font-family: Impact;
+}
+
+.right{
+    text-align: right;
+}
+
+.middle{
+    text-align: center;
+}
+
+.ol{
+    list-style-type: none;
 }
 
 .flex{
